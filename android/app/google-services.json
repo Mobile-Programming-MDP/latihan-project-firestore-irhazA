@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "972121772867",
+    "firebase_url": "https://flutterfireirhaz-default-rtdb.firebaseio.com",
+    "project_id": "flutterfireirhaz",
+    "storage_bucket": "flutterfireirhaz.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:972121772867:android:2779a18589da987c0d15f6",
+        "android_client_info": {
+          "package_name": "com.example.flutterlist"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDafNr2DfhVLN9GIFB4ROH4hqs4diKRKtY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
