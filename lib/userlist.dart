@@ -23,11 +23,11 @@ class _UserListState extends State<UserList> {
 
   TextEditingController email = TextEditingController();
 
-  List<UserData> daftarUser = [
-    UserData("idris", 34, "idrez.mochamad@gmail.com"),
-    UserData("adi", 24, "adi@gmail.com"),
-    UserData("rizal", 33, "rizal.mochamad@gmail.com"),
-  ];
+  // List<UserData> daftarUser = [
+  //   UserData("idris", 34, "idrez.mochamad@gmail.com"),
+  //   UserData("adi", 24, "adi@gmail.com"),
+  //   UserData("rizal", 33, "rizal.mochamad@gmail.com"),
+  // ];
 
   Color btnSimpanColorDefault = Colors.blue;
   Color btnSimpanColor = Colors.blue;
@@ -119,7 +119,7 @@ class _UserListState extends State<UserList> {
                           }
 
                           setState(() {
-                            daftarUser;
+                            // daftarUser;
                             isReadOnly = false;
                           });
 
