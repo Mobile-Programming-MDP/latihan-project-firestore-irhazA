@@ -65,4 +65,5 @@ class DefaultFirebaseOptions {
     projectId: 'notess-859ec',
     storageBucket: 'notess-859ec.appspot.com',
   );
+
 }
