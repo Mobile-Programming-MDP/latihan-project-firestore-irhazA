@@ -9,7 +9,7 @@ import 'package:path/path.dart' as path;
 class NoteService {
   static final FirebaseFirestore _database = FirebaseFirestore.instance;
   static final CollectionReference _notesCollection =
-      _database.collection('notes');
+      _database.collection('notess');
   static final FirebaseStorage _storage = FirebaseStorage.instance;
 
   static Future<String?> uploadImage(XFile file) async {
