@@ -37,7 +37,7 @@ class _MapScreenState extends State<MapScreen> {
             ),
             child: const Icon(
               Icons.location_city,
-              color: Colors.red,
+              color: Color.fromARGB(255, 54, 70, 244),
               size: 32,
             ),
           ),
