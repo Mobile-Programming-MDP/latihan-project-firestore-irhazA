@@ -4,6 +4,8 @@ import 'package:image_picker/image_picker.dart';
 import 'package:notes/models/note.dart';
 import 'package:notes/services/location_services.dart';
 import 'package:notes/services/note_services.dart';
+import 'package:permission_handler/permission_handler.dart';
+import 'dart:io';
 
 class NoteDialog extends StatefulWidget {
   final Note? note;
@@ -22,17 +24,23 @@ class _NoteDialogState extends State<NoteDialog> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
+    _requestPermissions();
     if (widget.note != null) {
       _titleController.text = widget.note!.title;
       _descriptionController.text = widget.note!.description;
     }
   }
 
-  Future<void> _pickImage() async {
-    final pickedFile =
-        await ImagePicker().pickImage(source: ImageSource.gallery);
+  Future<void> _requestPermissions() async {
+    await [
+      Permission.camera,
+      Permission.storage,
+    ].request();
+  }
+
+  Future<void> _pickImage(ImageSource source) async {
+    final pickedFile = await ImagePicker().pickImage(source: source);
     if (pickedFile != null) {
       setState(() {
         _imageFile = pickedFile;
@@ -76,8 +84,8 @@ class _NoteDialogState extends State<NoteDialog> {
           ),
           Expanded(
             child: _imageFile != null
-                ? Image.network(
-                    _imageFile!.path,
+                ? Image.file(
+                    File(_imageFile!.path),
                     fit: BoxFit.cover,
                   )
                 : (widget.note?.imageUrl != null &&
@@ -88,9 +96,17 @@ class _NoteDialogState extends State<NoteDialog> {
                       )
                     : Container()),
           ),
-          TextButton(
-            onPressed: _pickImage,
-            child: const Text("Pick Image"),
+          Row(
+            children: [
+              TextButton(
+                onPressed: () => _pickImage(ImageSource.gallery),
+                child: const Text("Pick Image"),
+              ),
+              TextButton(
+                onPressed: () => _pickImage(ImageSource.camera),
+                child: const Text("Camera"),
+              ),
+            ],
           ),
           TextButton(
             onPressed: _getLocation,
@@ -101,7 +117,7 @@ class _NoteDialogState extends State<NoteDialog> {
                 ? 'Current Position : ${_position!.latitude.toString()}, ${_position!.longitude.toString()}'
                 : 'Current Position : ${widget.note?.lat}, ${widget.note?.lng}',
             textAlign: TextAlign.start,
-          )
+          ),
         ],
       ),
       actions: [

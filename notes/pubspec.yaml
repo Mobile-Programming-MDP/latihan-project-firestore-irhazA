@@ -20,6 +20,11 @@ dependencies:
   latlong2: ^0.9.1
   flutter_config: ^2.0.2
   google_maps_flutter: ^2.6.1
+  provider: ^6.1.2
+  shared_preferences: ^2.2.3
+  permission_handler: ^11.3.1
+  share: ^2.0.4
+  share_plus: ^9.0.0
 
 dev_dependencies:
   flutter_test:
